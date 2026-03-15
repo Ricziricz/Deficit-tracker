@@ -83,10 +83,10 @@
       return isNaN(n) ? null : n;
     }
     function fmtDate(iso) {
-      if (!iso) return "—";
-      const d = new Date(iso.split("T")[0] + "T12:00:00");
-      return d.toLocaleDateString("pl-PL", { day: "2-digit", month: "2-digit" });
-    }
+  if (!iso) return "—";
+  const parts = iso.split("T")[0].split("-");
+  return parts[2] + "." + parts[1];
+}
     function addDays(ds, n) {
       const d = new Date(ds + "T12:00:00");
       d.setDate(d.getDate() + n);
